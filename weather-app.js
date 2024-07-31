@@ -51,11 +51,13 @@ function displayCurrentWeather(data) {
     const humidity = current.main.humidity;
     const windSpeed = current.wind.speed;
 
+    console.log('Current Weather Data:', current);
+
     currentWeather.innerHTML = `
         <h2>${cityName}</h2>
         <p>${date}</p>
         <img src="${iconUrl}" alt="Weather icon">
-        <p>Temperature: ${temp}°F</p>
+        <p>Temperature: ${temp}°C</p>
         <p>Humidity: ${humidity}%</p>
         <p>Wind Speed: ${windSpeed} m/s</p>
     `;
@@ -76,7 +78,7 @@ function displayForecast(data) {
         forecastCard.innerHTML = `
             <p>${date}</p>
             <img src="${iconUrl}" alt="Weather icon">
-            <p>Temp: ${temp}°F</p>
+            <p>Temp: ${temp}°C</p>
             <p>Humidity: ${humidity}%</p>
             <p>Wind: ${windSpeed} m/s</p>
         `;
