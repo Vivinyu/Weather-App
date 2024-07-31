@@ -47,7 +47,7 @@ function displayCurrentWeather(data) {
     const cityName = data.city.name;
     const date = new Date(current.dt * 1000).toLocaleDateString();
     const iconUrl = `http://openweathermap.org/img/wn/${current.weather[0].icon}.png`;
-    const temp = current.main.temp;
+    const temp = Math.round(current.main.temp);
     const humidity = current.main.humidity;
     const windSpeed = current.wind.speed;
 
@@ -55,7 +55,7 @@ function displayCurrentWeather(data) {
         <h2>${cityName}</h2>
         <p>${date}</p>
         <img src="${iconUrl}" alt="Weather icon">
-        <p>Temperature: ${temp}°C</p>
+        <p>Temperature: ${temp}°F</p>
         <p>Humidity: ${humidity}%</p>
         <p>Wind Speed: ${windSpeed} m/s</p>
     `;
@@ -67,7 +67,7 @@ function displayForecast(data) {
         const forecast = data.list[i];
         const date = new Date(forecast.dt * 1000).toLocaleDateString();
         const iconUrl = `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
-        const temp = forecast.main.temp;
+        const temp = Math.round(forecast.main.temp);
         const humidity = forecast.main.humidity;
         const windSpeed = forecast.wind.speed;
 
@@ -76,7 +76,7 @@ function displayForecast(data) {
         forecastCard.innerHTML = `
             <p>${date}</p>
             <img src="${iconUrl}" alt="Weather icon">
-            <p>Temp: ${temp}°C</p>
+            <p>Temp: ${temp}°F</p>
             <p>Humidity: ${humidity}%</p>
             <p>Wind: ${windSpeed} m/s</p>
         `;
